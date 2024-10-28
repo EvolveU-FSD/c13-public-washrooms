@@ -1,0 +1,21 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+th {
+    padding: 0.25em;
+    text-align: start;
+    background-color: aliceblue;
+}
+
+td {
+    padding: 0.25em;
+}
+
+button {
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 0.75em;
+    background-color: aliceblue;
+    font-weight: 700;
+}

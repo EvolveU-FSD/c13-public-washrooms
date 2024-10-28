@@ -1,0 +1,24 @@
+{
+  "name": "c13-project2-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install:server": "cd server && npm install && cd ..",
+    "install": "npm run install:server",
+    "build": "echo no build step today!",
+    "start:server": "cd server && npm start && cd ..",
+    "start": "npm run start:server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvolveU-FSD/c13-project2-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvolveU-FSD/c13-project2-starter/issues"
+  },
+  "homepage": "https://github.com/EvolveU-FSD/c13-project2-starter#readme"
+}
