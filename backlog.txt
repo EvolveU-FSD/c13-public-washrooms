@@ -1,0 +1,13 @@
+
+In Progress
+- list all washrooms
+
+Backlog
+- see washroom detail
+- navigate to the washroom
+- show washrooms on a map
+- find a washroom near me right now
+- Users to be able to report new washrooms
+- add star rating for washroom experience
+- Toilet Paper is out alarm
+- Other amenities

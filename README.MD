@@ -1,4 +1,4 @@
-# Project 2 Starter
+# Public Washroom App
 
 ```
 cd server
