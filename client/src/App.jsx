@@ -1,34 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <table>
+        <tbody>
+          <tr><th>Name</th><th>Location</th></tr>
+          <tr><td>BOWNESS PK COMFORT STATION 2</td><td>-114.2201632,51.0979772</td></tr>
+          <tr><td>BAKER PARK COMFORT STATION</td><td>-114.2206521,51.1010746</td></tr>
+          <tr><td>BOWNESS PK COMFORT STATION 1</td><td>-114.2247107,51.0973907</td></tr>
+          <tr><td>BOWNESS PK COMFORT STN YR RND</td><td>-114.2173622,51.0969984</td></tr>
+          <tr><td>CALGARY SLOW PITCH SOCIETY WASHROOM NORTH</td><td>-114.017967,51.0922151</td></tr>
+        </tbody>
+      </table>
+      <button>Refresh</button>
+    </div>
   )
 }
 
