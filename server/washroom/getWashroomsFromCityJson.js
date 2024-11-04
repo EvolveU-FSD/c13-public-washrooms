@@ -7,14 +7,14 @@ if (response.status!==200) {
 }
 const cityWashrooms = await response.json()
 
-const washrooms = cityWashrooms.map((city) => {
+const washrooms = cityWashrooms.map((cityWashroom) => {
     return {
-        name: city.common_name,
-        address: city.bld_address,
-        city_globalid: city.globalid,
+        name: cityWashroom.common_name,
+        address: cityWashroom.bld_address,
+        city_globalid: cityWashroom.globalid,
         location: {
             type: "Point",
-            coordinates: city.multipolygon.coordinates[0][0][0]
+            coordinates: cityWashroom.multipolygon.coordinates[0][0][0]
         }
     }
 })
