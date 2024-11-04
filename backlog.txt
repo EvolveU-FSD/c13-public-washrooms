@@ -3,6 +3,7 @@ In Progress
 - list all washrooms
 
 Backlog
+- loading indicator for washroom list
 - see washroom detail
 - navigate to the washroom
 - show washrooms on a map
