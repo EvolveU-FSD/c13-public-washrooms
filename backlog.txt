@@ -1,8 +1,6 @@
 In Progress
-- show washrooms on a map
 
 Backlog
-- hide maps api key
 - see washroom detail
 - loading indicator for washroom list
 - navigate to the washroom
@@ -13,4 +11,6 @@ Backlog
 - Other amenities
 
 Done
+- show washrooms on a map
 - list all washrooms
+- hide maps api key
