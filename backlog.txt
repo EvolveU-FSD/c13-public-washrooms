@@ -1,10 +1,10 @@
 In Progress
+- find a washroom near me right now
 
 Backlog
 - see washroom detail
 - loading indicator for washroom list
 - navigate to the washroom
-- find a washroom near me right now
 - Users to be able to report new washrooms
 - add star rating for washroom experience
 - Toilet Paper is out alarm
