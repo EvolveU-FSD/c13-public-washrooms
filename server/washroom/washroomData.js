@@ -9,7 +9,7 @@ export async function findAllWashrooms(userLocation) {
             $nearSphere: { 
                 $geometry: { type: "Point", coordinates: [ userLocation.lng, userLocation.lat ] }, 
                 $maxDistance: 2000 
-            } 
+            }
         } 
     }
 
