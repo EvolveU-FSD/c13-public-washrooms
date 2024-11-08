@@ -25,8 +25,12 @@ router.get('/:washroomId', async function (req, res) {
 // list all washrooms
 router.get('/', async function (req, res) {
     try {
-        console.log('name is', req.query.name)
-        const washrooms = await findAllWashrooms(req.query.name)
+        const userLocation = {
+            lat: Number.parseFloat(req.query.lat),
+            lng: Number.parseFloat(req.query.lng),
+        }
+        console.log(userLocation)
+        const washrooms = await findAllWashrooms()
         res.send(washrooms)
     }
     catch (error) {

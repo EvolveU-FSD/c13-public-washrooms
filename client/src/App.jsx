@@ -1,8 +1,8 @@
 import './App.css'
-import WashroomMap from './WashroomMap'
+import WashroomsNearMe from './WashroomsNearMe'
 
 function App() {
-  return <WashroomMap />
+  return <WashroomsNearMe />
 }
 
 export default App
