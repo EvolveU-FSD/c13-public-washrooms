@@ -1,11 +1,18 @@
 import { ObjectId } from "mongodb"
 import { collection } from "../db.js"
 
-export async function findAllWashrooms(nameFragment) {
+export async function findAllWashrooms(userLocation) {
     const mongoQuery = {}
-    if (nameFragment !== undefined) {
-        mongoQuery.name = nameFragment
+    
+    if (userLocation) {
+        mongoQuery.location = { 
+            $nearSphere: { 
+                $geometry: { type: "Point", coordinates: [ userLocation.lng, userLocation.lat ] }, 
+                $maxDistance: 2000 
+            } 
+        } 
     }
+
     const washroomCollection = await collection('washrooms')
     const cursor = await washroomCollection.find(mongoQuery) // no query finds everything!
     const washrooms = await cursor.toArray()

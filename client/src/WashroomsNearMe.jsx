@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 function WashroomsNearMe() {
   const [washrooms, setWashrooms] = useState([])
-  const [userLocation, setUserLocation] = useState({ lat: 51.04516, lng: -114.05470 })
+  const [userLocation, setUserLocation] = useState({ lat: 51.08339, lng: -114.21483 })
 
   useEffect(() => {
     async function fetchAllWashrooms() {
