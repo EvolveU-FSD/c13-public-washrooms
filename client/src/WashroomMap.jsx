@@ -13,6 +13,7 @@ const center = {
 
 function WashroomMap() {
   const [washrooms, setWashrooms] = useState([])
+  const [browserLocation, setBrowserLocation] = useState()
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -20,15 +21,26 @@ function WashroomMap() {
   })
 
   useEffect(() => {
+    navigator.geolocation.getCurrentPosition((locationRightNow) => {
+      console.log("Browser location is", locationRightNow)
+      setBrowserLocation(locationRightNow)
+    }, console.log);
+  }, [])
+
+  useEffect(() => {
     async function fetchAllWashrooms() {
-        const response = await fetch('/api/washrooms')
+        let optionalLocation = ''
+        if (browserLocation) {
+          optionalLocation = `?lat=${browserLocation.coords.latitude}&lng=${browserLocation.coords.longitude}`
+        }
+        const response = await fetch('/api/washrooms'+optionalLocation)
         if (response.status === 200) {
             const washroomsData = await response.json()
             setWashrooms(washroomsData)
         }    
     }
     fetchAllWashrooms()
-  }, [])
+  }, [browserLocation])
 
   return isLoaded ? (
     <GoogleMap
