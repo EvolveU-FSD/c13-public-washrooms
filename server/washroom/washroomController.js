@@ -32,7 +32,6 @@ router.get('/', async function (req, res) {
                 lng: Number.parseFloat(req.query.lng),
             }
         }
-        console.log(userLocation)
         const washrooms = await findAllWashrooms(userLocation)
         res.send(washrooms)
     }
