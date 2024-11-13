@@ -2,14 +2,46 @@ import { useEffect, useState } from 'react'
 
 import './WashroomList.css'
 
+async function getWashroomDetail(id) {
+  const response = await fetch('/api/washrooms/'+id)
+  if (response.status !== 200) {
+    throw new Error('Fetch for washroom detail failed')
+  }   
+  return await response.json()
+}
+
 function Washroom({id, name, coordinates}) {
+  const [showDetail, setShowDetail] = useState(false)
+  const [washroomDetail, setWashroomDetail] = useState({})
+
+  useEffect(()=>{
+    if (!showDetail) return
+    async function fetchDataForWashroom() {
+      const detail = await getWashroomDetail(id)
+      setWashroomDetail(detail)
+    }
+    fetchDataForWashroom()
+  }, [showDetail, id])
+
+  function toggleDetail() {
+    setShowDetail( !showDetail )
+  }
+
   return (
-    <div className="washroom-header" >
-      <h4>{name}</h4>
-      <div>{coordinates.join(', ')}</div>
-    </div>
+    <>
+      <div className="washroom-header" onClick={toggleDetail}>
+        <h4>{name}</h4>
+        <div>{coordinates.join(', ')}</div>
+      </div>
+      { showDetail && (
+        <div>
+          <div>Toilet Paper: {''+washroomDetail.toiletPaper}</div>
+        </div> 
+      )}
+    </>
   )
 }
+
 function WashroomList() {
   const [washrooms, setWashrooms] = useState([])
 
