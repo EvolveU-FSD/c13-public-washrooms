@@ -1,8 +1,8 @@
 import './App.css'
-import WashroomMap from './WashroomMap'
+import WashroomList from './WashroomList'
 
 function App() {
-  return <WashroomMap />
+  return <WashroomList />
 }
 
 export default App

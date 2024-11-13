@@ -1,5 +1,15 @@
 import { useEffect, useState } from 'react'
 
+import './WashroomList.css'
+
+function Washroom({id, name, coordinates}) {
+  return (
+    <div className="washroom-header" >
+      <h4>{name}</h4>
+      <div>{coordinates.join(', ')}</div>
+    </div>
+  )
+}
 function WashroomList() {
   const [washrooms, setWashrooms] = useState([])
 
@@ -16,18 +26,13 @@ function WashroomList() {
 
   return (
     <div>
-      <table>
-        <tbody>
-          <tr><th>Name</th><th>Location</th></tr>
-          {
-            washrooms.map((washroom) => (
-              <tr key={washroom._id}><td>{washroom.name}</td><td>{washroom.location.coordinates.join(', ')}</td></tr>
-            ))
-          }
-        </tbody>
-      </table>
-      <button>Refresh</button>
+      {
+        washrooms.map((washroom) => (
+          <Washroom key={washroom._id} id={washroom._id} name={washroom.name} coordinates={washroom.location.coordinates} />
+        ))
+      }
     </div>
+
   )
 }
 
