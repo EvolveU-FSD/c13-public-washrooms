@@ -16,11 +16,7 @@ function Washroom({id, name, coordinates}) {
 
   useEffect(()=>{
     if (!showDetail) return
-    async function fetchDataForWashroom() {
-      const detail = await getWashroomDetail(id)
-      setWashroomDetail(detail)
-    }
-    fetchDataForWashroom()
+    getWashroomDetail(id).then(setWashroomDetail)
   }, [showDetail, id])
 
   function toggleDetail() {
@@ -34,7 +30,7 @@ function Washroom({id, name, coordinates}) {
         <div>{coordinates.join(', ')}</div>
       </div>
       { showDetail && (
-        <div>
+        <div className="washroom-detail">
           <div>Toilet Paper: {''+washroomDetail.toiletPaper}</div>
         </div> 
       )}

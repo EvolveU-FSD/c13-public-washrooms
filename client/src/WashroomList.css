@@ -8,3 +8,7 @@ h4 {
     display: flex;
     justify-content: space-between;
 }
+
+.washroom-detail {
+    margin-left: 10px;
+}
