@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000
 const app = express()
 
 app.use(showRequests)
-app.use(express.static('../public_html'))
+app.use(express.static('../client/dist'))
 app.use(express.json())
 
 app.use('/api/washrooms', washroomsController)
