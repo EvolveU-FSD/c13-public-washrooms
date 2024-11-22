@@ -1,0 +1,29 @@
+
+.collapsedFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.selectedView {
+    font-weight: 700;
+}
+
+.viewList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewSelector {
+    padding:0.5em;
+    width: 75%;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 1px solid black;
+}
+
+.cancel {
+    padding-top: 0.5em;
+}

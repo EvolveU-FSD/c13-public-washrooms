@@ -1,8 +1,8 @@
 import './App.css'
-import WashroomList from './WashroomList'
+import MainLayout from './MainLayout'
 
 function App() {
-  return <WashroomList />
+  return <MainLayout />
 }
 
 export default App

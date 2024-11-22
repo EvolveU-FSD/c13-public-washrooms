@@ -1,0 +1,17 @@
+.screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.content {
+    flex: 1;
+    padding: 0.25em;
+}
+
+.footer {
+    padding: 0.5em;
+    border-top: 1px solid black;
+    background-color: aliceblue;
+}
