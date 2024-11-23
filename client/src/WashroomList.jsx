@@ -24,7 +24,7 @@ function Washroom({id, name, coordinates}) {
   }
 
   return (
-    <>
+    <div className={showDetail ? "washroom-selected" : ""}>
       <div className="washroom-header" onClick={toggleDetail}>
         <h4>{name}</h4>
         <div>{coordinates.join(', ')}</div>
@@ -34,7 +34,7 @@ function Washroom({id, name, coordinates}) {
           <div>Toilet Paper: {''+washroomDetail.toiletPaper}</div>
         </div> 
       )}
-    </>
+    </div>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./FootNav.css"
 
-export default function FootNav() {
+export default function FootNav({options = [], selectedOption, setSelectedOption}) {
     const [collapsed, setCollapsed] = useState(true)
 
     function uncollapse() {
@@ -16,16 +16,20 @@ export default function FootNav() {
         collapsed ? (
             <div className="collapsedFooter" onClick={uncollapse}>
                 <div>&#9650;</div>
-                <div className="selectedView">List View</div>
+                <div className="selectedView">{selectedOption}</div>
                 <div>&#9650;</div>
             </div>
         )
         :
         (
             <div className="viewList" onClick={collapse}>
-                <div className="viewSelector">List View</div>
-                <div className="viewSelector">Map View</div>
-                <div className="viewSelector">GOTTA GO NOW</div>
+                { options.map((option) => (
+                    <div 
+                        key={option} 
+                        className={"viewSelector " + ((option===selectedOption) ? " selectedView" : "")}
+                        onClick={() => setSelectedOption(option)}
+                    >{option}</div>
+                ))}
                 <div className="collapsedFooter" onClick={collapse}>
                     <div>&#9660;</div>
                     <div className="cancel">Cancel</div>

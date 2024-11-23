@@ -1,13 +1,15 @@
 .screen {
+    width: 100vw;
     height: 100vh;
+
     display: flex;
     flex-direction: column;
-
 }
 
 .content {
     flex: 1;
     padding: 0.25em;
+    overflow-y: scroll;
 }
 
 .footer {

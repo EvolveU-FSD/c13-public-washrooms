@@ -6,6 +6,10 @@ body {
   width: 100vw;
 }
 
+.root {
+  height: 100%;
+}
+
 th {
   padding: 0.25em;
   text-align: start;
