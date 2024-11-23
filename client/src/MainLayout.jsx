@@ -4,6 +4,7 @@ import { useState } from "react"
 import FootNav from "./FootNav"
 import "./MainLayout.css"
 import WashroomListContent from "./WashroomListContent"
+import WashroomMapContent from "./WashroomMapContent"
 
 const viewOptions = [
     'List View', 'Map View'
@@ -15,6 +16,7 @@ export default function MainLayout() {
     return (
         <div className="screen">
             { selectedOption === 'List View' && <WashroomListContent />}
+            { selectedOption === 'Map View' && <WashroomMapContent />}
             <div className="footer">
                 <FootNav 
                     options={viewOptions} 
