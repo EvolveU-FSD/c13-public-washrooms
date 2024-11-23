@@ -8,7 +8,7 @@ export async function findAllWashrooms(userLocation) {
         mongoQuery.location = { 
             $nearSphere: { 
                 $geometry: { type: "Point", coordinates: [ userLocation.lng, userLocation.lat ] }, 
-                $maxDistance: 2000 
+                $maxDistance: 10000 
             }
         } 
     }

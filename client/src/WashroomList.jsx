@@ -40,10 +40,11 @@ function Washroom({id, name, coordinates}) {
 
 function WashroomList() {
   const [washrooms, setWashrooms] = useState([])
+  const [userLocation, setUserLocation] = useState({ lat: 51.045017677337256, lng: -114.0548711371947 })
 
   useEffect(() => {
     async function fetchAllWashrooms() {
-        const response = await fetch('/api/washrooms')
+        const response = await fetch(`/api/washrooms?lat=${userLocation.lat}&lng=${userLocation.lng}`)
         if (response.status === 200) {
             const washroomsData = await response.json()
             setWashrooms(washroomsData)
