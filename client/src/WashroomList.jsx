@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react'
 
 import './WashroomList.css'
+import distanceBetween from './distanceBetween'
+
+function roundDistance(m) {
+  return Math.round(m/5)*5
+}
 
 async function getWashroomDetail(id) {
   const response = await fetch('/api/washrooms/'+id)
@@ -10,7 +15,7 @@ async function getWashroomDetail(id) {
   return await response.json()
 }
 
-function Washroom({id, name, coordinates}) {
+function Washroom({id, name, distanceText}) {
   const [showDetail, setShowDetail] = useState(false)
   const [washroomDetail, setWashroomDetail] = useState({})
 
@@ -27,7 +32,7 @@ function Washroom({id, name, coordinates}) {
     <div className={showDetail ? "washroom-selected" : ""}>
       <div className="washroom-header" onClick={toggleDetail}>
         <h4>{name}</h4>
-        <div>{coordinates.join(', ')}</div>
+        <div>{distanceText}</div>
       </div>
       { showDetail && (
         <div className="washroom-detail">
@@ -56,9 +61,14 @@ function WashroomList() {
   return (
     <div>
       {
-        washrooms.map((washroom) => (
-          <Washroom key={washroom._id} id={washroom._id} name={washroom.name} coordinates={washroom.location.coordinates} />
-        ))
+        washrooms.map((washroom) => {
+          const locationAndDirection = distanceBetween(
+              userLocation.lat, userLocation.lng, 
+              washroom.location.coordinates[1], washroom.location.coordinates[0]
+          )
+          const distanceText = `${roundDistance(locationAndDirection.distance)}m ${locationAndDirection.direction}`
+          return (<Washroom key={washroom._id} id={washroom._id} name={washroom.name} distanceText={distanceText} />)
+        })
       }
     </div>
 

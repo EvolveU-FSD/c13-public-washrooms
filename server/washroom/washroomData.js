@@ -1,6 +1,9 @@
 import { ObjectId } from "mongodb"
 import { collection } from "../db.js"
 
+// first off create this index if it doesn't exist yet
+(await collection("washrooms")).createIndex({ location: '2dsphere' })
+
 export async function findAllWashrooms(userLocation) {
     const mongoQuery = {}
     
